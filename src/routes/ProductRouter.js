@@ -22,4 +22,21 @@ router.get('/get-all', async (req, res) => {
 
 })
 
+router.post('/ProductKeybyId', async(req, res) => {
+
+  try {
+    const products = await Product.find({
+      _id: req.body._id
+    })
+    
+    return res.status(200).json({
+      nome: products[0].nome,
+      key: products[0].key
+    })
+
+  } catch (error) {
+      return res.status(400).json(error)
+  }
+})
+
 module.exports = router
