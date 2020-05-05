@@ -10,6 +10,9 @@ router.post('/find', async (req, res) => {
   try {
     
     const {body} = req
+
+    console.log(body)
+
     const arrayData = body.Question.split('_')
 
     const fieldName = body.Action
